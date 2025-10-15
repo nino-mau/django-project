@@ -22,7 +22,8 @@ services:
 
   django:
     build: .
-    command: bash -c "python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000"
+    # command: bash -c "python3 manage.py migrate && python manage.py tailwind install && python manage.py && python3 manage.py runserver 0.0.0.0:8000"
+    command: ['./entrypoint.sh']
     environment:
       - HOST=${HOST}
       - ENV=${ENV}
@@ -33,6 +34,7 @@ services:
       - MYSQL_DATABASE=${MYSQL_DATABASE}
       - MYSQL_USER=${MYSQL_USER}
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - CHOKIDAR_USEPOLLING=${CHOKIDAR_USEPOLLING}
     volumes:
       - .:/app
     ports:

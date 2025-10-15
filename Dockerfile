@@ -1,8 +1,11 @@
 # Use the official Python base image
-FROM python:3.9
+FROM nikolaik/python-nodejs:python3.14-nodejs24
 
 # Set the working directory
 WORKDIR /app
+
+# Install pnpm for django-tailwind
+RUN npm install --global corepack@latest && corepack enable pnpm
 
 # Install dependencies
 COPY requirements.txt .

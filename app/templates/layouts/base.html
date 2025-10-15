@@ -6,9 +6,11 @@
     {% block title %}
       <title>Django Project</title>
     {% endblock %}
+    {% load django_bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
   </head>
   <body>
     {% block content %}
     {% endblock %}
+    <p class="fs-1">bonjour {{name}}</p>
   </body>
 </html>

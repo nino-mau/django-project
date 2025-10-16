@@ -34,6 +34,7 @@ DEBUG_TOOLBAR_CONFIG = {
     "SHOW_TOOLBAR_CALLBACK": show_toolbar,
 }
 
+STATIC_URL = "static/"
 STATICFILES_DIRS = [BASE_DIR / "app" / "static"]
 
 INSTALLED_APPS = [

@@ -21,5 +21,8 @@ from . import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", views.index),
+    path("", views.index, name="index"),
+    path("images/", views.images, name="images"),
+    path("image/<str:name>", views.image, name="image"),
+    path("image/raw/<str:name>", views.image_raw, name="image_raw"),
 ] + debug_toolbar_urls()

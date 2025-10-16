@@ -22,8 +22,23 @@ DEBUG = env("DEBUG")
 
 ALLOWED_HOSTS = []
 
+INTERNAL_IPS = [
+    "0.0.0.0",
+    "127.0.0.1",
+    "localhost",
+]
+
 
 # Application definition
+
+
+def show_toolbar(request):
+    return True
+
+
+DEBUG_TOOLBAR_CONFIG = {
+    "SHOW_TOOLBAR_CALLBACK": show_toolbar,
+}
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -33,6 +48,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django_bootstrap5",
+    "debug_toolbar",
+    "django_extensions",
 ]
 
 MIDDLEWARE = [
@@ -43,6 +60,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = "app.urls"

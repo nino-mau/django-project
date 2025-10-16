@@ -2,6 +2,5 @@ Django
 psycopg2-binary
 django-environ
 mysqlclient
-django-bootstrap5
 django-debug-toolbar
 django-extensions

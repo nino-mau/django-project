@@ -22,23 +22,19 @@ DEBUG = env("DEBUG")
 
 ALLOWED_HOSTS = []
 
-INTERNAL_IPS = [
-    "0.0.0.0",
-    "127.0.0.1",
-    "localhost",
-]
-
 
 # Application definition
 
 
 def show_toolbar(request):
-    return True
+    return DEBUG
 
 
 DEBUG_TOOLBAR_CONFIG = {
     "SHOW_TOOLBAR_CALLBACK": show_toolbar,
 }
+
+STATICFILES_DIRS = [BASE_DIR / "app" / "static"]
 
 INSTALLED_APPS = [
     "django.contrib.admin",

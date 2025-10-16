@@ -1,0 +1,24 @@
+{
+  "name": "django-project",
+  "version": "1.0.0",
+  "description": "```bash git clone <repository-url> cd django-project ```",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "npx @tailwindcss/cli -i app/static/css/style.css -o app/static/css/tailwind.css --minify --watch app/templates/**/*.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nino-mau/django-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nino-mau/django-project/issues"
+  },
+  "homepage": "https://github.com/nino-mau/django-project#readme",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.14",
+    "tailwindcss": "^4.1.14"
+  }
+}

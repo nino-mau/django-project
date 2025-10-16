@@ -33,7 +33,7 @@ Install dependencies outside of container:
 
 ```bash
 python3 -m venv .venv
-source .venv/bin/activate  # or .venv\Scripts\Activate.ps1 on Windows
+source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
@@ -47,4 +47,3 @@ pip install -r requirements.txt
 | `MYSQL_USER`          | Database user                       |
 | `MYSQL_PASSWORD`      | Database password                   |
 | `MYSQL_ROOT_PASSWORD` | Database root password              |
-

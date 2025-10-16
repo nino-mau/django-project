@@ -11,8 +11,10 @@ venv/
 .DS_Store
 staticfiles/
 media/
+CACHE
 
 # Tailwind/Node.js
+app/static/css/tailwind.css
 node_modules/
 npm-debug.log*
 yarn-debug.log*

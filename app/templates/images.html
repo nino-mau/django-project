@@ -1,31 +1,35 @@
 {% extends "layouts/base.html" %}
 {% block content %}
-    <div class="flex flex-col w-full">
+    <div class="flex flex-col w-full gap-6">
         <div class="w-full flex flex-row justify-end">
-            <c-button label="Add Image" icon="fa-plus" />
+            <a href="{% url 'image_upload' %}" class="size-fit">
+                <c-icon-button label="Upload Image" icon="fa-upload" />
+            </a>
         </div>
-        <div class="flex flex-wrap gap-x-8">
+        <div class="flex flex-wrap gap-x-8 gap-y-6">
             {% for image in object_list %}
-                <div class="card h-fit bg-base-100 w-96 shadow-sm">
+                <div class="relative rounded-md outline-0 outline-offset-2 outline-solid flex flex-col bg-base-100 w-96 h-95 shadow-sm gap-auto">
                     <a href="{{ image.path }}"
-                       class="hover:opacity-85 transition-all duration-500">
-                        <img class="rounded-t-lg" src="{{ image.path }}" alt="My image">
+                       class=" hover:opacity-85 transition-all min-h-0 duration-500 flex grow items-center justify-center">
+                        <img class="rounded-t-lg size-full object-contain"
+                             src="/media/{{ image.path }}"
+                             alt="My image">
                     </a>
-                    <div class="card-body gap-6">
+                    <div class="p-6 flex flex-col justify-end gap-6">
                         <div class="flex flex-col gap-2">
-                            <h2 class="card-title">
+                            <h2 class="text-lg font-semibold">
                                 {{ image.name }}
                                 <div class="badge badge-secondary">Image</div>
                             </h2>
-                            <p>{{ image.path }}</p>
+                            <p class="text-sm">{{ image.path }}</p>
                         </div>
                         <!-- <div class="card-actions justify-end"> -->
                         <!--     <div class="badge badge-outline">Fashion</div> -->
                         <!--     <div class="badge badge-outline">Products</div> -->
                         <!-- </div> -->
-                        <a href="{% url 'image' image.id %}"
-                           class="btn w-auto"
-                           aria-lebel="Open raw image">See Details</a>
+                        <a href="{% url 'image' image.id %}" class="size-full">
+                            <c-button label="See Details" class="!w-full justify-center"></c-button>
+                        </a>
                     </div>
                 </div>
             {% endfor %}

@@ -15,13 +15,18 @@ Including another URLconf
 """
 
 from django.contrib import admin
+from django.conf.urls.static import static
 from django.urls import path
 from debug_toolbar.toolbar import debug_toolbar_urls
-from app import views
+from app import settings, views
 from app.views import ImagesListView, ImageDetailView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("images/", ImagesListView.as_view(), name="images"),
     path("<int:pk>/", ImageDetailView.as_view(), name="image"),
+    path("image_upload/", views.handle_upload, name="image_upload"),
 ] + debug_toolbar_urls()
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -2,8 +2,4 @@
 @import 'flowbite/src/themes/default';
 @plugin "flowbite/plugin";
 @source "../../node_modules/flowbite";
-@plugin "daisyui";
-@plugin "daisyui" {
-  themes: false;
-}
 @import './theme.css';

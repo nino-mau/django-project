@@ -5,3 +5,5 @@ mysqlclient
 django-debug-toolbar
 django-extensions
 ipython
+django-alpine
+django-cotton

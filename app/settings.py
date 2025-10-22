@@ -35,6 +35,7 @@ DEBUG_TOOLBAR_CONFIG = {
 }
 
 STATIC_URL = "static/"
+STATIC_ROOT = "staticfiles/"
 STATICFILES_DIRS = [BASE_DIR / "app" / "static"]
 
 INSTALLED_APPS = [
@@ -46,6 +47,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "debug_toolbar",
     "django_extensions",
+    "django_alpine",
+    "django_cotton",
+    "app",
 ]
 
 MIDDLEWARE = [

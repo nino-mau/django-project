@@ -17,12 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from debug_toolbar.toolbar import debug_toolbar_urls
-from . import views
+from app import views
+from app.views import ImagesListView, ImageDetailView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", views.index, name="index"),
-    path("images/", views.images, name="images"),
-    path("image/<str:name>", views.image, name="image"),
-    path("image/raw/<str:name>", views.image_raw, name="image_raw"),
+    path("images/", ImagesListView.as_view(), name="images"),
+    path("<int:pk>/", ImageDetailView.as_view(), name="image"),
 ] + debug_toolbar_urls()

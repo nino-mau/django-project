@@ -1,3 +1,5 @@
+from django.http import HttpResponseRedirect
+from django.urls.base import reverse
 from django.utils import timezone
 from django.shortcuts import render
 from django.views.generic import CreateView, DetailView, FormView, ListView
@@ -31,5 +33,6 @@ def handle_upload(request):
         form = forms.UploadImageForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+            return HttpResponseRedirect(reverse("images"))
 
     return render(request, "image_upload.html", context={"form": form})

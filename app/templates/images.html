@@ -3,32 +3,28 @@
     <div class="flex flex-col w-full gap-10">
         <div class="w-full flex flex-row justify-end">
             <a href="{% url 'image_upload' %}" class="size-fit">
-                <c-icon-button label="Upload Image" icon="fa-upload" />
+                <c-icon-button label="Upload Image" icon="fa-regular fa-up-from-bracket" />
             </a>
         </div>
         <div class="grid grid-cols-3 gap-x-8 gap-y-6">
             {% for image in object_list %}
-                <div class="col-span-1 relative rounded-md outline-0 outline-offset-2 outline-solid flex flex-col bg-base-100 w-full h-95 shadow-sm hover:shadow-xl transition-all duration-400 gap-auto">
-                    <a href="{{ image.path }}"
-                       class=" hover:opacity-85 transition-all min-h-0 duration-500 flex grow items-center justify-center">
-                        <img class="rounded-t-lg size-full object-contain"
-                             src="/media/{{ image.path }}"
-                             alt="My image">
-                    </a>
-                    <div class="p-6 flex flex-col justify-end gap-6">
-                        <div class="flex flex-col gap-2">
-                            <h2 class="text-lg font-semibold">{{ image.name }}</h2>
-                            <p class="text-sm">{{ image.path }}</p>
-                        </div>
-                        <!-- <div class="card-actions justify-end"> -->
-                        <!--     <div class="badge badge-outline">Fashion</div> -->
-                        <!--     <div class="badge badge-outline">Products</div> -->
-                        <!-- </div> -->
-                        <a href="{% url 'image' image.id %}" class="size-full">
-                            <c-button label="See Details" class="!w-full justify-center"></c-button>
-                        </a>
+                <c-card class="col-span-1 relative flex flex-col w-full h-95 shadow-sm hover:shadow-xl !p-0 transition-all duration-400 gap-auto">
+                <a href="{{ image.path }}"
+                   class="min-h-0 duration-500 flex grow items-center justify-center">
+                    <img class="rounded-t-lg size-full object-contain"
+                         src="/media/{{ image.path }}"
+                         alt="My image">
+                </a>
+                <div class="p-6 flex flex-col justify-end gap-6">
+                    <div class="flex flex-col gap-1">
+                        <h2 class="text-lg font-semibold">{{ image.name }}</h2>
+                        <p class="text-xs">{{ image.path }}</p>
                     </div>
+                    <a href="{% url 'image' image.id %}" class="size-full">
+                        <c-button label="See Details" class="!w-full justify-center"></c-button>
+                    </a>
                 </div>
+                </c-card>
             {% endfor %}
         </div>
     </div>

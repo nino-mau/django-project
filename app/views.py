@@ -2,7 +2,7 @@ from django.http import HttpResponseRedirect
 from django.urls.base import reverse
 from django.utils import timezone
 from django.shortcuts import render
-from django.views.generic import CreateView, DetailView, FormView, ListView
+from django.views.generic import CreateView, DeleteView, DetailView, FormView, ListView
 
 from app import models, forms
 
@@ -25,6 +25,11 @@ class ImageDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context["now"] = timezone.now()
         return context
+
+
+class ImageDeleteView(DeleteView):
+    model = models.Images
+    success_url = "/images"
 
 
 def handle_upload(request):

@@ -15,14 +15,21 @@
                          src="/media/{{ image.path }}"
                          alt="My image">
                 </a>
-                <div class="p-6 flex flex-col justify-end gap-6">
+                <div class="p-6 flex flex-col justify-end gap-6 pt-5 border-t-1 border-border">
                     <div class="flex flex-col gap-1">
-                        <h2 class="text-lg font-semibold">{{ image.name }}</h2>
+                        <h2 class="text-xl font-bold">{{ image.name }}</h2>
                         <p class="text-xs">{{ image.path }}</p>
                     </div>
-                    <a href="{% url 'image' image.id %}" class="size-full">
-                        <c-button label="See Details" class="!w-full justify-center"></c-button>
-                    </a>
+                    <div class="w-full flex flex-row justify-end gap-2">
+                        <form method="POST" action="{% url "image_delete" image.id %}">
+                            {% csrf_token %}
+                            <c-icon-only-button type="submit" icon="fa-solid fa-trash" class="!bg-danger !hover:bg-red-400"></c-icon-only-button>
+                        </form>
+                        <a href="{% url 'image' image.id %}" class="size-fit"></a>
+                        <a href="{% url 'image' image.id %}" class="size-fit">
+                            <c-button label="See Details"></c-button>
+                        </a>
+                    </div>
                 </div>
                 </c-card>
             {% endfor %}

@@ -17,10 +17,13 @@
   --color-background: var(--color-gray-100);
 
   --color-default: var(--color-neutral-800);
+  --color-border: var(--color-neutral-200);
   --color-sidebar-background: var(--color-white);
   --color-secondary: #2a303e;
 
   --color-foreground-muted: #e5e5e5;
+
+  --color-danger: var(--color-red-500);
 }
 
 @variant dark (&:where(.dark, .dark *));

@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     "django_extensions",
     "django_alpine",
     "django_cotton",
+    "widget_tweaks",
     "app",
 ]
 

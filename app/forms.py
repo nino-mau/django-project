@@ -1,4 +1,5 @@
 from django import forms
+from django.forms.widgets import Input
 from app import models
 
 

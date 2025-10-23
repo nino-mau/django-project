@@ -1,4 +1,6 @@
 @theme static {
+  --font-sans: 'Inter';
+  --color-scheme: light;
   --color-primary: var(--color-neutral-900);
   --color-primary-50: var(--color-neutral-50);
   --color-primary-100: var(--color-neutral-100);
@@ -14,8 +16,11 @@
 
   --color-background: var(--color-gray-100);
 
+  --color-default: var(--color-neutral-800);
   --color-sidebar-background: var(--color-white);
   --color-secondary: #2a303e;
 
   --color-foreground-muted: #e5e5e5;
 }
+
+@variant dark (&:where(.dark, .dark *));

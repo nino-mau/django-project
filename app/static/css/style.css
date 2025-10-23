@@ -3,3 +3,33 @@
 @plugin "flowbite/plugin";
 @source "../../node_modules/flowbite";
 @import './theme.css';
+@source "../../app/templates/**/*.html";
+
+body {
+  font-family: 'Inter';
+  color-scheme: light;
+}
+
+input[type='file'] {
+  padding-left: 20px;
+}
+
+.fileUpload {
+  position: relative;
+  border-radius: var(--radius-md) !important;
+  overflow: hidden;
+  margin: 10px;
+}
+.fileUpload input.upload {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: var(--radius-md) !important;
+  margin-left: 20px;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}

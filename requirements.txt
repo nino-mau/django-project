@@ -7,3 +7,4 @@ django-extensions
 ipython
 django-alpine
 django-cotton
+django-widget-tweaks

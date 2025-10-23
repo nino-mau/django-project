@@ -1,0 +1,34 @@
+{% extends "layouts/base.html" %}
+{% load widget_tweaks %}
+{% block content %}
+    <div class="w-full flex flex-col gap-5 items-center justify-center">
+        <div class="w-full mr-auto">
+            <a href="{% url 'images' %}" class="size-full">
+                <c-icon-button label="Go Back" icon="fa-regular fa-arrow-left"></c-icon-button>
+            </a>
+        </div>
+        <c-card class="w-120">
+        <div class="flex flex-col gap-10">
+            <div class="flex flex-row gap-3 items-center justify-center">
+                <i class="fa-solid fa-image text-2xl text-default"></i>
+                <h1 class="text-2xl font-bold text-default">Update Image</h1>
+            </div>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="flex flex-col gap-5">
+                    <div class="fieldWrapper">
+                        <label for="{{ form.name.id_for_label }}"
+                               class="block  text-neutral-500 dark:text-neutral-300">Name</label>
+                        {% render_field form.name placeholder="Enter a name" class="block  cursor-not-allowed mt-2 w-full placeholder-neutral-400/70 dark:placeholder-neutral-500 rounded-lg border border-neutral-200 px-5 py-2.5 text-neutral-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-neutral-600 dark:bg-neutral-900 dark:text-neutral-300 dark:focus:border-blue-300" %}
+                        {{ form.name.errors }}
+                    </div>
+                    <button type="submit"
+                            class="flex items-center px-4 py-2 mt-4 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-primary rounded-lg hover:bg-primary-800 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80 w-full justify-center">
+                        <span class="mx-1">Update</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+        </c-card>
+    </div>
+{% endblock %}

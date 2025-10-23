@@ -3,7 +3,14 @@ from django.template import loader
 from django.urls.base import reverse
 from django.utils import timezone
 from django.shortcuts import render
-from django.views.generic import CreateView, DeleteView, DetailView, FormView, ListView
+from django.views.generic import (
+    CreateView,
+    DeleteView,
+    DetailView,
+    FormView,
+    ListView,
+    UpdateView,
+)
 
 from app import models, forms
 
@@ -13,8 +20,8 @@ def home(request):
     return HttpResponse(template.render())
 
 
-class ImagesListView(ListView):
-    model = models.Images
+class ImageListView(ListView):
+    model = models.Image
     template_name = "images.html"
 
     def get_context_data(self, **kwargs):
@@ -24,7 +31,7 @@ class ImagesListView(ListView):
 
 
 class ImageDetailView(DetailView):
-    model = models.Images
+    model = models.Image
     template_name = "image.html"
 
     def get_context_data(self, **kwargs):
@@ -34,16 +41,19 @@ class ImageDetailView(DetailView):
 
 
 class ImageDeleteView(DeleteView):
-    model = models.Images
+    model = models.Image
     success_url = "/images"
 
 
-def handle_upload(request):
-    form = forms.UploadImageForm()
-    if request.method == "POST":
-        form = forms.UploadImageForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse("images"))
+class ImageUpdateView(UpdateView):
+    model = models.Image
+    template_name = "image_update.html"
+    form_class = forms.UpdateImageForm
+    success_url = "/images"
 
-    return render(request, "image_upload.html", context={"form": form})
+
+class ImageCreateView(CreateView):
+    model = models.Image
+    template_name = "image_create.html"
+    form_class = forms.UploadImageForm
+    success_url = "/images"

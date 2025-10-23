@@ -19,15 +19,22 @@ from django.conf.urls.static import static
 from django.urls import path
 from debug_toolbar.toolbar import debug_toolbar_urls
 from app import settings, views
-from app.views import ImageDeleteView, ImagesListView, ImageDetailView
+from app.views import (
+    ImageCreateView,
+    ImageDeleteView,
+    ImageUpdateView,
+    ImageListView,
+    ImageDetailView,
+)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", views.home, name="home"),
-    path("images/", ImagesListView.as_view(), name="images"),
+    path("images/", ImageListView.as_view(), name="images"),
     path("<int:pk>/", ImageDetailView.as_view(), name="image"),
     path("<int:pk>/delete", ImageDeleteView.as_view(), name="image_delete"),
-    path("image_upload/", views.handle_upload, name="image_upload"),
+    path("<int:pk>/update", ImageUpdateView.as_view(), name="image_update"),
+    path("image_upload/", ImageCreateView.as_view(), name="image_upload"),
 ] + debug_toolbar_urls()
 
 if settings.DEBUG:

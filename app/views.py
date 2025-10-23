@@ -1,10 +1,16 @@
-from django.http import HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect
+from django.template import loader
 from django.urls.base import reverse
 from django.utils import timezone
 from django.shortcuts import render
 from django.views.generic import CreateView, DeleteView, DetailView, FormView, ListView
 
 from app import models, forms
+
+
+def home(request):
+    template = loader.get_template("home.html")
+    return HttpResponse(template.render())
 
 
 class ImagesListView(ListView):

@@ -23,6 +23,7 @@ from app.views import ImageDeleteView, ImagesListView, ImageDetailView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("", views.home, name="home"),
     path("images/", ImagesListView.as_view(), name="images"),
     path("<int:pk>/", ImageDetailView.as_view(), name="image"),
     path("<int:pk>/delete", ImageDeleteView.as_view(), name="image_delete"),

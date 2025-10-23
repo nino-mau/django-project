@@ -36,14 +36,3 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 ```
-
-## Environment Variables
-
-| Variable              | Description                         |
-| --------------------- | ----------------------------------- |
-| `DEBUG`               | Enable or disable Django debug mode |
-| `SECRET_KEY`          | Django secret key                   |
-| `MYSQL_DATABASE`      | Database name                       |
-| `MYSQL_USER`          | Database user                       |
-| `MYSQL_PASSWORD`      | Database password                   |
-| `MYSQL_ROOT_PASSWORD` | Database root password              |

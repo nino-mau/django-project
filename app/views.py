@@ -1,13 +1,11 @@
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse
+from django.shortcuts import get_object_or_404
 from django.template import loader
-from django.urls.base import reverse
 from django.utils import timezone
-from django.shortcuts import render
 from django.views.generic import (
     CreateView,
     DeleteView,
     DetailView,
-    FormView,
     ListView,
     UpdateView,
 )
@@ -21,6 +19,16 @@ def home(request):
 
 
 class ImageListView(ListView):
+    model = models.Image
+    template_name = "images.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["now"] = timezone.now()
+        return context
+
+
+class CategoryImageListView(ListView):
     model = models.Image
     template_name = "images.html"
 

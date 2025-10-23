@@ -38,6 +38,13 @@ Generate static files:
 docker compose exec django /app/manage.py collectstatic
 ```
 
+If the site is unstyled, launch tailwind cli to generate css from utilities class (if not in dev no need to let it run):
+
+```bash
+npm install
+npm run watch
+```
+
 Once built, the app will be available at **[http://localhost:8000](http://localhost:8000)**.
 
 #### Optional LSP support

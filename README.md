@@ -25,6 +25,19 @@ Start the application using Docker Compose:
 docker-compose up -d --build
 ```
 
+Execute the migration:
+
+```bash
+docker compose exec django /app/manage.py makemigrations app
+docker compose exec django /app/manage.py migrate
+```
+
+Generate static files:
+
+```bash
+docker compose exec django /app/manage.py collectstatic
+```
+
 Once built, the app will be available at **[http://localhost:8000](http://localhost:8000)**.
 
 #### Optional LSP support
